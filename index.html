@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Api de Ventas</a>
+        </div>
+    </nav>
+    <br><br>
+
+    <!-- CONTENIDO DE LOS EMPLEADOS -->
+    <div class="container container-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Clientes</h2>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
+                + Agregar Empleado
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Identificacion</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Telefono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEmpleados">
+                    <!-- Filas se insertan aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENIDO DE LAS AREASA -->
+    <div class="container container-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Clientes Registrados</h2>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
+                + Agregar Cliente
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Numero Documento</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Direccion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaJugadores">
+                    <!-- Filas se insertan aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- MODAL AGREGAR EMPLEADO -->
+    <div class="modal fade" id="ModalAgregarEmpleado" tabindex="-1" aria-labelledby="ModalAgregarEmpleadoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Empleado</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioAgregarEmpleado" class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">Identificacion</label>
+                            <input type="number" class="form-control" id="identificacionEmpleado">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreEmpleado">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellidoEmpleado">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Telefono</label>
+                            <input type="number" class="form-control" id="telefonoEmpleado">
+                        </div>
+                        
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Empleado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR EMPLEADO -->
+    <div class="modal fade" id="ModalEditarEmpleado" tabindex="-1" aria-labelledby="ModalEditarEmpleadoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Cliente</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarEmpleado" class="row g-3">
+
+                        <input type="hidden" id="idEmpleado">
+
+                        <div class="col-12">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreEmpleadoEditar">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellidoEmpleadoEditar">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Telefono</label>
+                            <input type="number" class="form-control" id="telefonoEmpleadoEditar">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Editar Empleado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/js/empelados.js"></script>
+    
+</body>
+</html>
