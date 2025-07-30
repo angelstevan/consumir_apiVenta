@@ -17,10 +17,10 @@
     </nav>
     <br><br>
 
-    <!-- CONTENIDO DE LOS EMPLEADOS -->
+    <!---------------------------------------------------------------- CONTENIDO DE LOS EMPLEADOS ------------------------------------------------------------>
     <div class="container container-main">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Clientes</h2>
+            <h2>Empleados</h2>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
                 + Agregar Empleado
             </button>
@@ -38,33 +38,6 @@
                     </tr>
                 </thead>
                 <tbody id="tablaEmpleados">
-                    <!-- Filas se insertan aquí -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- CONTENIDO DE LAS AREASA -->
-    <div class="container container-main">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Clientes Registrados</h2>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
-                + Agregar Cliente
-            </button>
-        </div>
-
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered bg-white">
-                <thead class="table-primary">
-                    <tr>
-                        <th>Numero Documento</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Direccion</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaJugadores">
                     <!-- Filas se insertan aquí -->
                 </tbody>
             </table>
@@ -145,11 +118,312 @@
         </div>
     </div>
 
+    <!------------------------------------------------------------------------------------------- CONTENIDO DE LAS TAREAS ---------------------------------------------------------------->
+    <div class="container container-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Tareas</h2>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarTarea">
+                + Agregar Tarea
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Descripcion</th>
+                        <th>Prioridad</th>
+                        <th>Area</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaTareas">
+                    <!-- Filas se insertan aquí -->
+                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- MODAL AGREGAR AREA -->
+    <div class="modal fade" id="ModalAgregarTarea" tabindex="-1" aria-labelledby="ModalAgregarTareaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Tarea</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioAgregarTarea" class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">Prioridad</label>
+                            <input type="text" class="form-control" id="prioridadTarea">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="descripcionTarea">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Area ID</label>
+                            <input type="text" class="form-control" id="areaIDTarea">
+                        </div>
+                        
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR AREA -->
+   <div class="modal fade" id="ModalEditarTarea" tabindex="-1" aria-labelledby="ModalEditarTareaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Tarea</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarTarea" class="row g-3">
+
+                        <input type="hidden" id="idTareaEditar">
+
+                        <div class="col-12">
+                            <label class="form-label">Prioridad</label>
+                            <input type="text" class="form-control" id="prioridadTareaEditar">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="descripcionTareaEditar">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Area ID</label>
+                            <input type="text" class="form-control" id="areaIDTareaEditar">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Editar Tarea</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------------------------------------------------------------------ CONTENIDO DE LOS ESTADOS ----------------------------------------------------------->
+    <div class="container container-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Estados</h2>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarEstado">
+                + Agregar Estado
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEstados">
+                    <!-- Filas se insertan aquí -->
+                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- MODAL AGREGAR AREA -->
+    <div class="modal fade" id="ModalAgregarEstado" tabindex="-1" aria-labelledby="ModalAgregarEstadoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Estado</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioAgregarEstado" class="row g-3">
+
+                        <div class="col-12">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreEstado">
+                        </div>
+                        
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Estado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR AREA -->
+   <div class="modal fade" id="ModalEditarEstado" tabindex="-1" aria-labelledby="ModalEditarEstadoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Estado</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarEstado" class="row g-3">
+
+                        <input type="hidden" id="idEstadoEditar">
+
+                        <div class="col-12">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreEstadoEditar">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Editar Estado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!------------------------------------------------------------------------------------------ CONTENIDO DE LOS ESTADOS ----------------------------------------------------------->
+    <div class="container container-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Asignaciones</h2>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalAgregarAsignacion">
+                + Agregar Asignacion
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Empleado</th>
+                        <th>Apellido Empleado</th>
+                        <th>Tarea Descripcion</th>
+                        <th>Tarea Prioridad</th>
+                        <th>Fecha Asignacion</th>
+                        <th>Fecha Entrega</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaAsignacion">
+                    <!-- Filas se insertan aquí -->
+                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- MODAL AGREGAR AREA -->
+    <div class="modal fade" id="ModalAgregarAsignacion" tabindex="-1" aria-labelledby="ModalAgregarAsignacionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Asigancion</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioAgregarAsignacion" class="row g-3">
+
+                        <div class="col-12">
+                            <label class="form-label">Identificacion Empleado</label>
+                            <input type="text" class="form-control" id="identificacionEmpleadoAsignacion">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Tarea ID</label>
+                            <input type="text" class="form-control" id="tareaID">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Estado ID</label>
+                            <input type="text" class="form-control" id="estadoID">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Fecha Asignacion</label>
+                            <input type="datetime-local" class="form-control" id="fechaAsignacion">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Fecha Entrega</label>
+                            <input type="datetime-local" class="form-control" id="fechaEntrega">
+                        </div>
+                         
+                        
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Asignacion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR AREA -->
+   <div class="modal fade" id="ModalEditarAsignacion" tabindex="-1" aria-labelledby="ModalEditarAsignacionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Estado</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarAsignacion" class="row g-3">
+
+                        <input type="hidden" id="idAsignacionEditar">
+
+                        <div class="col-12">
+                            <label class="form-label">Identificacion Empleado</label>
+                            <input type="text" class="form-control" id="identificacionEmpleadoAsignacionEditar">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Tarea ID</label>
+                            <input type="text" class="form-control" id="tareaIDEditar">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Estado ID</label>
+                            <input type="text" class="form-control" id="estadoIDEditar">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Fecha Asignacion</label>
+                            <input type="datetime-local" class="form-control" id="fechaAsignacionEditar">
+                        </div>
+                         <div class="col-12">
+                            <label class="form-label">Fecha Entrega</label>
+                            <input type="datetime-local" class="form-control" id="fechaEntregaEditar">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Editar Asignacion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/assets/js/empelados.js"></script>
+    <script src="/assets/js/apiTareas.js"></script>
     
 </body>
 </html>
